@@ -5,11 +5,12 @@ pipeline {
   }
   stages {
     stage('Checkout') {
-      steps {
-        git url: 'https://github.com/Maha-9162/web-app-deployment.git',
-            credentialsId: 'github-pat'
-      }
-    }
+  steps {
+    git branch: 'main',
+        url: 'https://github.com/Maha-9162/web-app-deployment.git',
+        credentialsId: 'github-pat'
+  }
+}
     stage('Build Image') {
       steps {
         sh 'docker build -t $IMAGE .'
